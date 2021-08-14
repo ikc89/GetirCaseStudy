@@ -1,12 +1,12 @@
 FROM node:14.17.5-slim
 
-RUN mkdir -p /usr/src/app
+COPY . /app
 
-WORKDIR /usr/src/app
-
-COPY . .
+WORKDIR /app
 
 RUN npm install
+
+COPY . .
 
 EXPOSE 3000
 
