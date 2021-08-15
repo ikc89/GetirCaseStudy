@@ -1,9 +1,9 @@
-# GetirCaseStudy
+## GetirCaseStudy
 
-Getir Backend Task
+# Getir Backend Task
 
 You can access to api via url: https://getir-case-study-ikc.herokuapp.com/swagger
 
-Used Technologies
+# Used Technologies
 
 * NodeJS, Express, Mongoose
