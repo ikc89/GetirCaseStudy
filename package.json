@@ -4,17 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node --unhandled-rejections=strict ./dist/app.js",
+    "beforeinstall": "tsc",
+    "start": "node --unhandled-rejections=strict ./dist/app.js",
     "debug": "export DEBUG=* && npm run start",
     "test": "mocha -r ts-node/register 'test/**/*.test.ts' --unhandled-rejections=strict",
-    "test-debug": "export DEBUG=* && npm test"
+    "test-debug": "export DEBUG=* && npm test",
+    "postinstall": "tsc"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-winston": "^4.1.0",
+    "helmet": "^4.6.0",
     "mongoose": "^5.13.7",
     "swagger-ui-express": "^4.1.6",
     "winston": "^3.3.3"

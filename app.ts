@@ -9,6 +9,11 @@ import * as swaggerDocument from './swagger.json';
 import { CommonRoutesConfig } from './common/common.routes.config';
 import { CaseRecordsRoutes } from './caserecords/caserecords.routes.config';
 
+const { environment } = require('./config/app');
+
+const helmet = require("helmet");
+const compression = require('compression');
+
 const app: express.Application = express();
 const server: http.Server = http.createServer(app);
 const port = 3000;
@@ -17,6 +22,11 @@ const routes: Array<CommonRoutesConfig> = [];
 app.use(express.json());
 
 app.use(cors());
+
+if (environment === 'production') {
+  app.use(compression());
+  app.use(helmet());
+}
 
 const loggerOptions: expressWinston.LoggerOptions = {
     transports: [new winston.transports.Console()],
